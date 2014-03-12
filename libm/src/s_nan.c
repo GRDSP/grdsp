@@ -27,11 +27,35 @@
  */
 
 #include <sys/endian.h>
-#include <ctype.h>
+//#include <ctype.h>
 #include <float.h>
 #include <math.h>
 #include <stdint.h>
-#include <strings.h>
+//#include <strings.h>
+
+#define bzero(p, n) __builtin_memset(p, 0, n)
+static inline int isxdigit(int c) {
+	switch (c) {
+	case '0'...'9':
+	case 'a'...'f':
+	case 'A'...'F':
+		return 1;
+	default:
+		return 0;
+	}
+}
+static inline int digittoint(int c) {
+	switch (c) {
+	case '0'...'9':
+		return c - '0';
+	case 'a'...'f':
+		return c - 'a' + 10;
+	case 'A'...'F':
+		return c - 'A' + 10;
+	default:
+		return 0;
+	}
+}
 
 #include "math_private.h"
 
