@@ -36,7 +36,7 @@
 __FBSDID("$FreeBSD: release/10.0.0/lib/msun/bsdsrc/b_log.c 176449 2008-02-22 02:26:51Z das $");
 
 #include <math.h>
-#include <errno.h>
+//#include <errno.h>
 
 #include "mathimpl.h"
 
