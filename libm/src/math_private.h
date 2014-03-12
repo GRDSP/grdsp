@@ -20,6 +20,9 @@
 #include <sys/types.h>
 #include <machine/endian.h>
 
+#undef FLT_EVAL_METHOD
+#define FLT_EVAL_METHOD __FLT_EVAL_METHOD__
+
 /*
  * The original fdlibm code used statements like:
  *	n0 = ((*(int*)&one)>>29)^1;		* index of high word *
