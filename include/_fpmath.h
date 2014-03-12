@@ -22,6 +22,15 @@ union IEEEl2bits {
 		unsigned int		manl	:32;
 #endif
 	} bits;
+	struct {
+#if _BYTE_ORDER == _LITTLE_ENDIAN
+		unsigned long long man	:52;
+		unsigned int	expsign	:12;
+#else /* _BIG_ENDIAN */
+		unsigned int	expsign	:12;
+		unsigned long long man	:52;
+#endif
+	} xbits;
 };
 
 #define	LDBL_NBIT	0
