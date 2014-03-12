@@ -1,0 +1,16 @@
+ENTRY(_start)
+MEMORY {
+	MCSM : ORIGIN = 0x0C000000, LENGTH = 6M
+}
+SECTIONS {
+	.bin : {
+		_text = .;
+		*(.text.boot)
+		*(.text) *(.text.startup)
+		_etext = .;
+		*(.data)
+		_edata = .;
+		*(.bss)
+		_ebss = .;
+	} > MCSM
+}
